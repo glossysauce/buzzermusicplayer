@@ -32,7 +32,6 @@ void setup() {
         noTone(BUZZERPIN);  // Stop the buzzer after each note
         delay(50);  // Slight delay for note separation
     }
-    delay(1000);  // Delay before repeating the melody
 }
 
 void loop() {
