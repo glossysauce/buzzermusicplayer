@@ -66,18 +66,13 @@ void setup() {
     // the note's duration time. This will keep pulling until the duration time is up
 
     do {
-
       currentMillis = millis();                                     //grab current time
-
     } while (!((currentMillis - previousMillis) >= noteDuration));  //check if time is long enough
 
     previousMillis = currentMillis;                                 //update previousmilli
-
-
     // stop the tone playing:
 
     noTone(BUZZERPIN);
-
   }
 
 }

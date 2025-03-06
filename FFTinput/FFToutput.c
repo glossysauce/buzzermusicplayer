@@ -1,7 +1,6 @@
 /* SOPHIE YANG
 REFERENCES
 breadboard layout from: https://docs.arduino.cc/tutorials/uno-r4-minima/dac/ (this was purely digital and i plugged into dig pin 9 instead of A0)
-music from: https://musescore.com/user/36935768/scores/20261989 (i edited bass clef and chords out then exported as a new wav)
 */
 
 #include <avr/pgmspace.h>  // Include the PROGMEM library
