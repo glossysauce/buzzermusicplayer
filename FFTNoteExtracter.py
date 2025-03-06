@@ -45,20 +45,25 @@ def extract_notes(wav_file):
     prev_freq = notes[0][0]  # first detected frequency
     start_time = notes[0][1]  # first note start time
     freq_tolerance = 2  # 2hz tolerance
+    dur_tolerance = 30 #reject any note duration shorter than dur_tolerance ms, can be changed based on bpm
 
 # group consecutive and similar frequencies into a single note
     for i in range(1, len(notes)):
         freq, timestamp = notes[i]
         
-        if abs(freq - prev_freq) > freq_tolerance:  # detect smaller changes
-            duration = timestamp - start_time
-            note_durations.append((prev_freq, duration))
+        if abs(freq - prev_freq) > freq_tolerance:  # detect significant changes
+            duration = (timestamp - start_time) * 1000  # convert to ms
+            
+            if duration > dur_tolerance:  # apply duration filter
+                note_durations.append((prev_freq, duration))
+            
             start_time = timestamp  # reset start time
-            prev_freq = freq  # update previous frequency
+            prev_freq = freq  # update frequency
 
-    # append the last note
-    duration = times[-1] - start_time
-    note_durations.append((prev_freq, duration))
+    # handle the last note
+    duration = (times[-1] - start_time) * 1000
+    if duration > dur_tolerance:
+        note_durations.append((prev_freq, duration))
 
     return note_durations
 
@@ -72,12 +77,12 @@ def export_durations(note_durations, output_file):
     with open(output_file, 'w') as f:
         durations = [f"{duration:.2f}" for _, duration in note_durations]
         f.write(", ".join(durations))
+
 # import audio as wav
-wav_file = "tonetest.wav"
+wav_file = "your_audio.wav"
 note_durations = extract_notes(wav_file)
 
 export_notes(note_durations, "notes.txt")
 export_durations(note_durations, "durations.txt")
-
 
 print("notes + durations extracted and saved")
