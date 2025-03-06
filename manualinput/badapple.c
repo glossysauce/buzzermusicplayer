@@ -15,7 +15,12 @@ int tempo = 120;
 int wholenote = (60000 * 4) / tempo;
 
 int mainMelody[] = {
-    //insert notes here
+
+  DS4, F4, FS4, GS4, AS4, DS5, CS5, AS4, DS4, AS4, GS4, FS4, F4, DS4, 
+  F4, FS4, GS4, AS4, GS4, FS4, F4, DS4, F4, FS4, F4, DS4, D4, F4, DS4, 
+  F4, FS4, GS4, AS4, DS5, CS5, AS4, DS4, AS4, GS4, FS4, F4, DS4, F4, 
+  FS4, GS4, AS4, GS4, FS4, F4, FS4, GS4, AS4
+
 };
 
 /* 1 = WHOLE NOTE    
@@ -25,7 +30,11 @@ int mainMelody[] = {
   16 = SIXTEENTH NOTE */
 
 int mainNotes[] = {
-    //insert note durations by beat here
+
+  8, 8, 8, 8, 4, 8, 8, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 8, 8, 8, 
+  8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 4, 
+  8, 8, 4, 4, 4, 4
+
 };
 
 
