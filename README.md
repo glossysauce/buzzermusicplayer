@@ -8,6 +8,7 @@ This project consists of two subprojects that work together to play melodies usi
 - **Potentiometer**
 - **Breadboard**
 - **Jumper wires**
+<img width="2480" height="1748" alt="image" src="https://github.com/user-attachments/assets/6be26f2f-9106-479a-9b0c-df0fa2b2b7aa" />
 
 ## Manual Input Subproject (template.c and notes.h)
 
